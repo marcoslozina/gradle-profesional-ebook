@@ -1,3 +1,7 @@
-# Java + Gradle Profesional (English)
+# Professional Java + Gradle Template
 
-English version of the module java + gradle profesional.
+![Cover](./images/portada-gradle-pro.png)
+
+Modern technical guide for building a solid foundation with Gradle, Spring Boot, and Kotlin DSL.
+
+

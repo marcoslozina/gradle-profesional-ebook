@@ -1,0 +1,48 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+out/
+.idea_modules/
+*.ipr
+
+# Compiled class files
+*.class
+
+# Logs
+*.log
+
+# Build directories
+/build/
+/target/
+/out/
+
+# Gradle
+.gradle
+build/
+
+# Maven
+target/
+
+# Node (si tu proyecto tiene algo de frontend)
+node_modules/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Java
+*.jar
+*.war
+*.ear
+
+# VSCode (por si algún colaborador usa VS Code)
+.vscode/
+
+# Environment files
+.env
+.env.*
+
+# Temporary files
+*.swp
+*~
