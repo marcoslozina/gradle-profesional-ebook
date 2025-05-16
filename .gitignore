@@ -46,3 +46,9 @@ Thumbs.db
 # Temporary files
 *.swp
 *~
+# Ignorar archivos de configuración de IntelliJ/IDEA
+.idea/
+*.iml
+
+# Ignorar archivos ZIP
+*.zip
