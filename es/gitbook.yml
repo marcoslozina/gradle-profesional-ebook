@@ -6,6 +6,6 @@ languages:
   es:
     label: Español
     path: .
-  en:
-    label: English
-    path: .
+    title: Gradle Profesional Java y Spring
+    author: Marcos Lozina
+    cover: es/images/portada.png
