@@ -1,4 +1,4 @@
-## 8. ¿Qué es un BOM (Bill of Materials)?
+## 7. Gestión de versiones con BOM en proyectos Spring Boot
 
 Un **BOM** es un archivo que define un conjunto de versiones compatibles entre sí para un grupo de dependencias. Proviene originalmente del mundo Maven, pero Gradle lo interpreta automáticamente cuando usamos el plugin `io.spring.dependency-management` o el plugin oficial de Spring Boot.
 

@@ -2,7 +2,7 @@
   <img src="./images/portada.png" alt="Portada del eBook" width="600"/>
 </p>
 
-<h1 align="center">📘 Gradle Profesional con Java & Spring Boot</h1>
+<h1 align="center">📘 Gradle Profesional con Java & Spring</h1>
 
 <p align="center"><em>Automatización, buenas prácticas y arquitectura moderna con Kotlin DSL</em></p>
 

@@ -1,4 +1,4 @@
-## 9. Repositorio base del proyecto
+## 8. Repositorio base del proyecto
 
 Podés consultar el código completo y funcional de este eBook en el siguiente repositorio:
 

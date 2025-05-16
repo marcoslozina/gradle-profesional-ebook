@@ -1,54 +1,45 @@
-## 5. Archivos clave de configuración
+## 4. Estructura del proyecto
 
-Gradle organiza su configuración principal a través de archivos Kotlin Script (`.kts`) o Groovy (`.gradle`). En proyectos modernos, se recomienda usar Kotlin DSL (`.kts`) por su tipado, integración con el IDE y validación en tiempo de compilación, incluso si el proyecto está escrito completamente en **Java**.
-
-En este contexto, es importante conocer las diferencias entre los archivos `.kt`, `.kts` y su uso dentro de una estructura de proyecto profesional.
+Gradle organiza su configuración principal mediante archivos Kotlin Script (`.kts`) o Groovy (`.gradle`). En proyectos modernos con Java y Spring Boot, se recomienda usar **Kotlin DSL (`.kts`)**, incluso si todo el código fuente está escrito en `.java`. Esto permite aprovechar el tipado, la integración con el IDE y la validación en tiempo de compilación.
 
 ---
 
-### ¿Qué son `.kt` y `.kts`?
+### 📁 Archivos clave en un proyecto profesional
 
-- **`.kt`** → Archivos de código fuente de Kotlin. Se usan en la lógica de aplicación cuando el proyecto usa Kotlin como lenguaje.
-- **`.kts`** → Archivos Kotlin Script, utilizados exclusivamente en la configuración del build de Gradle (por ejemplo: `build.gradle.kts`, `settings.gradle.kts`).
-
-> En proyectos Java modernos se recomienda **usar `.kts` para la configuración**, aunque todo el código de aplicación esté escrito en Java (`.java`). Esto permite aprovechar la potencia del DSL tipado de Gradle sin tener que adoptar Kotlin en el código fuente.
-
----
-
-### Archivos principales
-
-#### 📄 `settings.gradle.kts`
-
-Define el nombre del proyecto raíz y los módulos que lo componen:
-
-```kotlin
-rootProject.name = "java-hexagonal-architecture"
-
-include("app")
-include("domain")
-include("application")
-include("infrastructure")
-include("config")
+```
+java-hexagonal-architecture/
+├── build.gradle.kts           # Configuración principal del proyecto
+├── settings.gradle.kts        # Declaración de módulos
+├── gradle.properties          # Propiedades globales reutilizables
+├── buildSrc/                  # Lógica común para el build (opcional)
+│   └── src/main/kotlin/
+│       └── Dependencies.kt    # Centralización de dependencias
+└── ...
 ```
 
-Este archivo es esencial en proyectos **multimódulo**, ya que Gradle necesita saber qué subproyectos gestionar y compilar.
-
 ---
 
-#### 📄 `build.gradle.kts` (raíz)
+### 📄 `build.gradle.kts` (raíz)
 
-Define la configuración global del proyecto, plugins compartidos y propiedades comunes como `group`, `version`, repositorios, y configuración de herramientas:
+Archivo principal de configuración. Define:
 
-```java
+- Plugins del proyecto (Spring Boot, Java, etc.)
+- Repositorios y versiones comunes
+- Configuración de compilación
+- Dependencias globales o compartidas
+
+**Ejemplo:**
+
+```kotlin
 plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.7.0"
-    id("org.springframework.boot") version "3.2.0" apply false
-    id("io.spring.dependency-management") version "1.1.3" apply false
+    id("org.springframework.boot") version "3.2.0"
+    id("io.spring.dependency-management") version "1.1.3"
+    java
 }
 
 allprojects {
-    group = "com.miempresa"
-    version = "1.0.0"
+    group = project.findProperty("group") as String
+    version = project.findProperty("projectVersion") as String
 
     repositories {
         mavenCentral()
@@ -56,42 +47,104 @@ allprojects {
 }
 ```
 
-Este archivo puede incluir configuraciones para pruebas, formato de código, cobertura, tareas personalizadas y configuración del compilador.
+---
+
+### 📄 `settings.gradle.kts`
+
+Define el nombre del proyecto raíz y los submódulos:
+
+```kotlin
+rootProject.name = "java-hexagonal-architecture"
+
+include("app", "domain", "application", "infrastructure", "config")
+```
+
+Este archivo es crítico para proyectos multimódulo, ya que Gradle lo ejecuta primero para identificar qué módulos compilar.
 
 ---
 
-#### 📁 `buildSrc/src/main/java/Dependencies.java` *(o `Dependencies.kt` si usás Kotlin)*
+### 📄 `gradle.properties`
 
-En proyectos grandes, es una buena práctica centralizar las versiones y declaraciones de dependencias. Esto se logra con una clase como esta:
+Centraliza propiedades reutilizables del proyecto, como versiones, configuración de JVM o flags:
 
-```java
-public class Dependencies {
-    public static final String SPRING_BOOT = "org.springframework.boot:spring-boot-starter";
-    public static final String JUNIT = "org.junit.jupiter:junit-jupiter-api:5.10.0";
+```properties
+# Información del proyecto
+projectVersion=1.0.0
+group=com.miempresa
+
+# JVM
+org.gradle.jvmargs=-Xmx2g -Dfile.encoding=UTF-8
+
+# Versiones
+springBootVersion=3.2.0
+junitVersion=5.10.0
+javaVersion=23
+```
+
+Se accede desde `.kts` así:
+
+```kotlin
+val springBootVersion: String by project
+```
+
+---
+
+### 📁 `buildSrc/` y `Dependencies.kt`
+
+El directorio `buildSrc/` permite centralizar la lógica del build (como dependencias) de forma organizada.
+
+**Ejemplo de `Dependencies.kt`:**
+
+```kotlin
+object Deps {
+    val junit get() = "org.junit.jupiter:junit-jupiter:${project.property("junitVersion")}"
+    val springBoot get() = "org.springframework.boot:spring-boot-starter:${project.property("springBootVersion")}"
 }
 ```
 
-Aunque muchos proyectos usan Kotlin (`Dependencies.kt`) en `buildSrc`, es totalmente válido y funcional usar Java si todo tu proyecto está escrito en Java.
+Luego se usa así:
 
-> `buildSrc` es una convención especial en Gradle que permite declarar lógica reutilizable y mantener el código de build organizado.
+```kotlin
+dependencies {
+    implementation(Deps.springBoot)
+    testImplementation(Deps.junit)
+}
+```
 
----
-
-### Comparación entre DSLs
-
-| Aspecto              | Kotlin DSL (`.kts`)                      | Groovy DSL (`.gradle`)               |
-|----------------------|------------------------------------------|--------------------------------------|
-| Tipado               | Sí (verificación en tiempo de compilación)| No                                   |
-| Autocompletado IDE   | Completo (IntelliJ, Android Studio)       | Parcial                              |
-| Integración moderna  | Alta (recomendado en Spring Initializr)   | Menor prioridad en nuevos proyectos  |
-| Popularidad histórica| Más reciente                              | Muy usado antes de Gradle 5          |
+> ✅ También se puede usar Java para `Dependencies.java` si todo el proyecto está en Java.
 
 ---
 
-### Recomendación general
+### 🎯 `.kt` vs `.kts` — ¿cuál es cuál?
 
-Aunque el código fuente de la aplicación esté en **Java**, usar **Kotlin DSL (`.kts`) para los archivos de configuración** aporta claridad, seguridad y mejor integración con herramientas modernas. No se requiere que el equipo conozca Kotlin profundamente, ya que estos scripts son declarativos y bien soportados por el ecosistema Gradle.
+| Extensión | Uso                                 | Contexto común         |
+|-----------|--------------------------------------|------------------------|
+| `.kt`     | Código fuente Kotlin                 | Lógica de negocio      |
+| `.kts`    | Kotlin Script para configuración     | Archivos de Gradle DSL |
+
+> Usar `.kts` en proyectos Java no obliga a usar Kotlin como lenguaje de aplicación.
 
 ---
 
-¿Querés avanzar con una sección para definir `gradle.properties`, tareas personalizadas, o configuración de test y coverage como siguiente paso?
+### ✅ Buenas prácticas
+
+- Declarar versiones en `gradle.properties`
+- Centralizar dependencias en `buildSrc/Dependencies.kt`
+- Evitar `Versions.kt` con versiones hardcodeadas
+- No incluir datos sensibles en `gradle.properties`
+- Usar `.kts` incluso en proyectos 100% Java para mejor mantenimiento
+
+---
+
+### 🧩 Resumen de responsabilidades
+
+| Archivo                    | Propósito principal                                           |
+|----------------------------|---------------------------------------------------------------|
+| `build.gradle.kts`         | Configuración de compilación, dependencias y plugins         |
+| `settings.gradle.kts`      | Organización y módulos del proyecto                          |
+| `gradle.properties`        | Propiedades globales, versiones, flags JVM                   |
+| `buildSrc/Dependencies.kt` | Declaración centralizada y reutilizable de dependencias      |
+
+---
+
+Aunque el código fuente esté completamente en Java, usar Kotlin DSL (`.kts`) en la configuración ofrece una experiencia de desarrollo más robusta, clara y moderna.

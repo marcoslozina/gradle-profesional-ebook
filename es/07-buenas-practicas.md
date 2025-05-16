@@ -1,4 +1,4 @@
-## 9. Buenas prácticas y errores comunes en proyectos Gradle
+## 7. Buenas prácticas y errores comunes en proyectos Gradle
 
 A continuación se presentan las recomendaciones clave para mantener proyectos Gradle bien estructurados, escalables y fáciles de mantener, junto con errores frecuentes que es importante evitar.
 
