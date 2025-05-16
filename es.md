@@ -4,18 +4,6 @@
 
 > *Guía técnica moderna para crear una base sólida con Gradle, Spring Boot y Kotlin DSL.*
 
-## Índice
-
-1. [¿Por qué usar Gradle en proyectos profesionales?](#1-por-qué-usar-gradle-en-proyectos-profesionales)
-2. [Diferencias entre Gradle y Maven](#2-diferencias-entre-gradle-y-maven)
-3. [Configuración de entorno](#3-configuración-de-entorno)
-4. [Estructura mínima de un proyecto Gradle moderno](#4-estructura-mínima-de-un-proyecto-gradle-moderno)
-5. [Archivos clave de configuración](#5-archivos-clave-de-configuración)
-6. [Uso de buildSrc y organización de dependencias](#6-uso-de-buildsrc-y-organización-de-dependencias)
-7. [Gestión de dependencias con Spring Boot y BOMs](#7-gestión-de-dependencias-con-spring-boot-y-boms)
-8. [Buenas prácticas y errores comunes](#8-buenas-prácticas-y-errores-comunes)
-9. [Enlace a repositorio base](#9-enlace-a-repositorio-base)
-10. [Próximo paso: Arquitectura Hexagonal](#10-próximo-paso-arquitectura-hexagonal)
 
 ## 1. ¿Por qué usar Gradle en proyectos profesionales?
 
