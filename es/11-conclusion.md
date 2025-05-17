@@ -1,4 +1,4 @@
-## ✅ Conclusión
+# 10. Conclusión
 
 A lo largo de este eBook recorrimos los fundamentos esenciales para configurar proyectos Java modernos con Gradle, sentando las bases para desarrollos profesionales, escalables y bien organizados.
 

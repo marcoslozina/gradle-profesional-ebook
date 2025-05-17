@@ -1,4 +1,4 @@
-## 5.  `buildSrc` y su rol en la arquitectura del build
+# 5.  `buildSrc` y su rol en la arquitectura del build
 
 El directorio `buildSrc/` en Gradle es una poderosa herramienta que permite organizar y escalar la lógica de construcción como si fuera parte de tu código productivo. Aunque muchas veces se subestima, su correcto uso marca una gran diferencia en proyectos empresariales Java con múltiples módulos, como los desarrollados con Spring Boot.
 

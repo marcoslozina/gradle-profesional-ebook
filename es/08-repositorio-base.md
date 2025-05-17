@@ -1,4 +1,4 @@
-## 8. Repositorio base del proyecto
+# 8. Repositorio base del proyecto
 
 Podés consultar el código completo y funcional de este proyecto en el siguiente repositorio:
 

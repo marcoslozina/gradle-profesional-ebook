@@ -1,8 +1,7 @@
 # Gradle Profesional con Java & Spring
 
-<p align="center">
-  <img src="images/portada.png" alt="Portada del eBook" width="600"/>
-</p>
+- <img src="images/portada.png" alt="Portada del eBook" width="600"/>
++ ![Portada del eBook](images/portada.png)
 
 ## 📚 Índice de contenidos
 

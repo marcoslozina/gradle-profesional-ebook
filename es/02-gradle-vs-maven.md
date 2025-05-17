@@ -1,4 +1,4 @@
-## 2. Diferencias entre Gradle y Maven
+# 2. Diferencias entre Gradle y Maven
 
 Gradle y Maven son las dos herramientas de automatización de builds más populares en el ecosistema Java. Ambas permiten compilar código, gestionar dependencias, empaquetar artefactos y ejecutar pruebas, pero difieren profundamente en su filosofía, rendimiento y capacidad de extensión.
 

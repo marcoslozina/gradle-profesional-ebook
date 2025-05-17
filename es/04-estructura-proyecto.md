@@ -1,4 +1,4 @@
-## 4. Estructura del proyecto
+# 4. Estructura del proyecto
 
 Gradle organiza su configuración principal mediante archivos Kotlin Script (`.kts`) o Groovy (`.gradle`). En proyectos modernos con Java y Spring Boot, se recomienda usar **Kotlin DSL (`.kts`)**, incluso si todo el código fuente está escrito en `.java`. Esto permite aprovechar el tipado, la integración con el IDE y la validación en tiempo de compilación.
 

@@ -1,4 +1,9 @@
-## 10. Próximo paso: Arquitectura Hexagonal
+# 9. Próximo paso: Arquitectura Hexagonal
+
+### 🔁 Diagrama de arquitectura hexagonal
+
+![Diagrama de arquitectura hexagonal](images/arquitectura-hexagonal.png)
+
 
 En el siguiente módulo profundizaremos en cómo separar las responsabilidades del sistema usando **Arquitectura Hexagonal**, también conocida como **Ports and Adapters**. Este estilo arquitectónico propone una organización del sistema que prioriza la independencia del dominio frente a la tecnología y detalles de infraestructura.
 

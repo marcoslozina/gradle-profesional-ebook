@@ -1,4 +1,4 @@
-## 3. Configuración del Entorno
+# 3. Configuración del entorno
 
 ### Objetivo
 Antes de comenzar con el desarrollo, es fundamental configurar correctamente el entorno para compilar, ejecutar y depurar proyectos Java modernos sin inconvenientes.
