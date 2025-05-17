@@ -1,17 +1,3 @@
-# IntelliJ IDEA
-../.idea/
-*.iml
-*.iws
-out/
-.idea_modules/
-*.ipr
-
-# Compiled class files
-*.class
-
-# Logs
-*.log
-
 # Build directories
 /build/
 /target/
@@ -52,3 +38,8 @@ Thumbs.db
 
 # Ignorar archivos ZIP
 *.zip
+=======
+# OS generated
+ehthumbs.db
+Desktop.ini
+
