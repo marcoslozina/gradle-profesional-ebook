@@ -1,7 +1,7 @@
 # Gradle Profesional con Java & Spring
 
 <p align="center">
-  <img src="./es/images/portada.png" alt="Portada del eBook" width="600"/>
+  <img src="images/portada.png" alt="Portada del eBook" width="600"/>
 </p>
 
 ## 📚 Índice de contenidos
