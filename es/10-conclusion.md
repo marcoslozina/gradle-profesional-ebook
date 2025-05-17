@@ -1,4 +1,4 @@
-## Conclusión
+## ✅ Conclusión
 
 A lo largo de este eBook recorrimos los fundamentos esenciales para configurar proyectos Java modernos con Gradle, sentando las bases para desarrollos profesionales, escalables y bien organizados.
 
@@ -14,8 +14,21 @@ Este conocimiento no solo mejora la calidad técnica de tus proyectos, sino que 
 
 ---
 
-### ¿Y ahora qué sigue?
+### 🎯 ¿Y ahora qué sigue?
 
 El próximo paso natural es profundizar en **Arquitectura Hexagonal**, donde aplicaremos lo aprendido para construir una aplicación orientada al dominio, completamente desacoplada de detalles técnicos y preparada para evolucionar con el tiempo.
 
-> Este eBook fue diseñado para ser más que un tutorial: es una guía práctica de base para desarrolladores Java que buscan construir software profesional con visión de largo plazo.
+👉 Si te gustó este eBook, no te pierdas la segunda parte:  
+**"Arquitectura Hexagonal con Java + Spring"**, donde llevamos todo esto a un caso de uso real, aplicando principios de diseño limpio y desacoplamiento efectivo.
+
+---
+
+### 🛠️ ¿Querés ponerlo en práctica?
+
+Desafiate a migrar un proyecto Java existente a Gradle con Kotlin DSL.  
+Modularizalo, optimizalo y viví de primera mano los beneficios de un build limpio y profesional.
+
+---
+
+> Construir software profesional no es solo cuestión de herramientas, sino de principios.  
+> **Gradle es el martillo, pero vos sos el arquitecto.**
